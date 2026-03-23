@@ -1,1 +1,2 @@
 odoo-addon-base_tier_validation @ git+https://github.com/OCA/tier-validation@refs/pull/1/head#subdirectory=base_tier_validation
+git+https://github.com/em230418/tier-validation@19.0-mig-base_tier_validation#subdirectory=base_tier_validation
