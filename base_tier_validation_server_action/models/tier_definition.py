@@ -4,6 +4,7 @@ import logging
 from ast import literal_eval
 
 from odoo import api, fields, models
+from odoo.fields import Domain
 
 _logger = logging.getLogger(__name__)
 
@@ -39,10 +40,8 @@ class TierDefinition(models.Model):
     @api.model
     def _cron_auto_tier_validation(self):
         reviews = self.env["tier.review"].search(
-            [
-                ("status", "in", ("waiting", "pending")),
-                ("definition_id.auto_validate", "=", True),
-            ]
+            Domain("status", "in", ("waiting", "pending"))
+            & Domain("definition_id.auto_validate", "=", True)
         )
         for review in reviews:
             doc = self._evaluate_review(review)
@@ -56,6 +55,7 @@ class TierDefinition(models.Model):
                     )
                     continue
                 review_doc = doc.with_user(reviewer)
+                review_doc.review_ids._update_review_status()
                 if review_doc.can_review:
                     sequences = review_doc._get_sequences_to_approve(reviewer)
                     if review.sequence in sequences:
