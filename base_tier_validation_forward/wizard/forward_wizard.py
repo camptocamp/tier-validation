@@ -26,7 +26,7 @@ class ValidationForwardWizard(models.TransientModel):
         self.ensure_one()
         rec = self.env[self.res_model].browse(self.res_id)
         prev_comment = self.env["comment.wizard"].browse(
-            self._context.get("comment_id")
+            self.env.context.get("comment_id")
         )
         prev_comment.write(
             {
@@ -62,4 +62,4 @@ class ValidationForwardWizard(models.TransientModel):
             }
         )
         rec.invalidate_recordset()
-        rec.review_ids._compute_can_review()
+        rec.review_ids._update_review_status()
