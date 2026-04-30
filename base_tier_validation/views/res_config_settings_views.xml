@@ -20,32 +20,6 @@
                                 Option to use python formula to get reviewers and find documents
                             </div>
                         </setting>
-                        <!-- <setting
-                            id="module_base_tier_validation_server_action"
-                        >
-                            <field
-                                name="module_base_tier_validation_server_action"
-                            />
-                            <div class="text-muted">
-                                Option to trigger server actions on completion of tier reviews
-                            </div>
-                        </setting> -->
-                        <!-- <setting
-                            id="module_base_tier_validation_forward"
-                        >
-                            <field name="module_base_tier_validation_forward"/>
-                            <div class="text-muted">
-                                Option to forward a tier validation to other reviewer, and backward
-                            </div>
-                        </setting> -->
-                        <!-- <setting
-                            id="module_base_tier_validation_report"
-                        >
-                            <field name="module_base_tier_validation_report" />
-                            <div class="text-muted">
-                                More reports about tier validations, i.e., summary of all my reviews
-                            </div>
-                        </setting> -->
                     </block>
                 </div>
             </xpath>
